@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //'https://jsonplaceholder.typicode.com/todos/'
+        //'https://jsonplaceholder.typicode.com/users'
+
+        // GET   FUNCIONA
+/*
+        const req = new XMLHttpRequest();
+        var ruta = 'https://jsonplaceholder.typicode.com/users';
+
+        req.open('GET', ruta);
+        req.addEventListener('load', function(){
+            if(req.status === 200 && req.readyState === 4){
+                let res = JSON.parse(req.responseText);
+                console.log(res);
+            }else {
+                console.log("Bad Request");
+            }
+        })
+        req.send();
+*/
+/*
+        // POST   FUNCIONA
+        var datos = {
+            "userid" : 1,
+            "title" : "prueba de POST",
+            "completed" : false
+        }
+
+        const req = new XMLHttpRequest();
+        var ruta = 'https://jsonplaceholder.typicode.com/todos/1';
+
+        req.open('POST', ruta);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.addEventListener('load', function(){
+            if(req.status === 201 && req.readyState === 4){
+                let res = JSON.parse(req.responseText);
+                console.log(res);
+            }else {
+                console.log('Bad Request');
+            }
+        })
+        req.send(JSON.stringify(datos));
+*/
+        //PATCH  (Update todos los campos)  //no funciona
+
+        var datos = {
+            "name": "PEDRO"  
+        }
+        const req = new XMLHttpRequest();
+        var ruta = 'https://jsonplaceholder.typicode.com/users/1';
+       // req.setRequestHeader('Content-Type', 'application/json');
+
+        req.open('PATCH', ruta);
+        req.send(JSON.stringify(datos));
+        
+        req.addEventListener('load', function(){
+            if(req.status === 200 && req.readyState === 4){
+                let res = JSON.parse(req.responseText);
+                console.log(res);
+                
+            }else {
+                console.log('Bad Request');
+            }
+        })
+        
+
+        // DELETE //FUNCIONA pero tiene un error con el status
+/*
+        var req = new XMLHttpRequest();
+        var ruta = "https://jsonplaceholder.typicode.com/todos/55";
+        req.open('DELETE', ruta);
+        
+        req.addEventListener('load', function(){                        // añadimos un listener al evento load.
+            if(req.status === 200 && req.readyState === 4){
+                console.log('Request Successful');
+            } else {
+                console.log('Bad Request');
+                }                             
+        })
+            req.send();
+*/
+    </script>
+</body>
+</html>
